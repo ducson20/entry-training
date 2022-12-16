@@ -1,0 +1,57 @@
+query(
+  $name: String, 
+  $active:Boolean, 
+  $orderBy: CompanyOrder,
+  $before: String,
+  $after: String,
+  $first: Int,
+  $last: Int
+){
+  
+  companies(
+    name:$name, 
+    active: $active, 
+    orderBy: $orderBy,
+    before: $before, 
+    after: $after,
+    first: $first, 
+    last: $last,
+  ){
+  	  edges{
+        node{
+          id
+          name
+          regions{
+            edges{
+              node{
+                id
+                active
+              }
+            }
+          }
+          departments{
+            edges{
+              node{
+                id
+                label
+              }
+            }
+          }
+        }
+        cursor
+      }
+    	pageInfo{
+        startCursor
+        endCursor
+        hasNextPage
+        hasPreviousPage
+      }
+	}
+}
+
+
+{
+  "name": "test",
+  "first": 20,
+  "after": "NDA"
+}

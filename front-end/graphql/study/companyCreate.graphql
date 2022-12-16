@@ -1,0 +1,37 @@
+mutation(
+  $input: CompanyCreateInput!
+){
+  companyCreate(input: $input){
+    company {
+    	id
+      name
+      active
+      departments{
+        edges{
+          node{
+            color
+          }
+          cursor
+        }
+        pageInfo{
+          endCursor
+          hasNextPage
+          hasPreviousPage
+          startCursor
+        }
+      }
+  	}
+  	errors {
+  		message
+		}
+  }
+}
+
+ 
+{
+  "input":{
+    "name": "Duc Son",
+    "maxUsers": 40000,
+    "maxLocations": 40000
+  }
+}

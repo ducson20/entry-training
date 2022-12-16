@@ -1,0 +1,19 @@
+mutation($username: String!, $password: String!){
+  
+  authenticate(username:$username, password: $password){
+    token
+    user{
+      active
+    }
+    errors {
+      message path
+    }
+  }
+  
+}
+
+{
+  
+  "username": "viet.nguyen@gmail.com",
+  "password": "Evizi#Training"
+}
